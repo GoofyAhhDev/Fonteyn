@@ -209,4 +209,4 @@ def pending_orders():
     return render_template('pending_booking.html', bookings = bookings)
 
 if __name__ == '__main__':
-    app.run(debug=True, ssl_context = 'adhoc')
+    app.run(debug=True,)
