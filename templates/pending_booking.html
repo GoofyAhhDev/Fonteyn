@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pending Bookings</title>
+	<style>
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		th, td {
+			text-align: left;
+			padding: 8px;
+			border-bottom: 1px solid #ddd;
+		}
+
+		tr:hover {background-color: #f5f5f5;}
+
+		th {
+			background-color: #4CAF50;
+			color: white;
+		}
+
+		form {
+			display: inline-block;
+		}
+
+		button {
+			background-color: #4CAF50;
+			color: white;
+			padding: 8px 16px;
+			margin: 8px 0;
+			border: none;
+			cursor: pointer;
+			border-radius: 16px;
+		}
+
+		button:hover {
+			background-color: #3e8e41;
+		}
+	</style>
+</head>
+<body>
+	<h1>Pending Bookings</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Date</th>
+				<th>Time</th>
+				<th>Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for booking in bookings %}
+				<tr>
+					<td>{{ booking[2] }}</td>
+					<td>{{ booking[3] }}</td>
+					<td>{{ booking[4] }}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<a href="/">Back to Home</a>
+</body>
+</html>

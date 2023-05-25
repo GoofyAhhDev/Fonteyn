@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Holiday Park</title>
+    <link rel="stylesheet" type="text/css" href="static/home.css">
+</head>
+<body>
+    <header>
+        <h1>Fonteyn vacantiepark</h1>
+        {% if 'username' in session %}
+            <span>Welcome, {{ session['username'] }}!</span>
+            {% if session['type'] == 'admin' %}
+                <a href="/manage_bookings"><button>Manage bookings</button></a>
+            {% endif %}
+            <a href="/logout"><button>Log out</button></a>
+            <a href="/booking"><button>Book a visit</button></a>
+        {% else %}
+            <a href="/login"><button>Log in</button></a>
+        {% endif %}
+    </header>
+    <main>
+        <h2>Welcome to Fonteyn vacaintiepark</h2>
+        <p>Our Holiday Park is located in the heart of nature, surrounded by beautiful trees and greenery. We offer a wide range of activities and accommodations for families, couples, and individuals.</p>
+        <p>Some of the activities we offer include hiking, biking, swimming, and fishing. We also have playgrounds for children and a restaurant that serves delicious food.</p>
+        <p>Whether you're looking for a relaxing getaway or an adventurous vacation, we have something for everyone. Come visit us and experience the beauty of nature!</p>
+    </main>
+    <footer>
+        <a href="/about"><button>Contact Us</button></a>
+    </footer>
+</body>
+</html>

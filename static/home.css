@@ -1,0 +1,77 @@
+body {
+	background-image: url("nature.jpg");
+	background-size: cover;
+	background-position: center;
+	font-family: Arial, sans-serif;
+	color: #444;
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	background-color: rgba(255, 255, 255, 0.9);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+h1 {
+	font-size: 36px;
+	margin: 0;
+}
+
+button {
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #3e8e41;
+}
+
+main {
+	padding: 20px;
+	margin-top: 80px;
+	background-color: rgba(255, 255, 255, 0.9);
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+	font-size: 24px;
+	margin: 20px 0;
+}
+
+p {
+	margin: 10px 0;
+	line-height: 1.5;
+}
+
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(255, 255, 255, 0.9);
+	padding: 10px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+}
+
+button.logout {
+	background-color: #f44336;
+}
+
+button.logout:hover {
+	background-color: #d32f2f;
+}

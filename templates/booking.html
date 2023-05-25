@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/static/booking.css">
+    <title>Book Visit</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/booking">Book Visit</a></li>
+                <li><a href="/pending_bookings">Pending Bookings</a></li>
+                <li><a href="/accepted_bookings">Accepted Bookings</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Book a Visit</h1>
+    {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
+    <form method="POST">
+        <label for="date">Date:</label>
+        <input type="date" name="date" id="date" required>
+
+        <label for="time">Time:</label>
+        <input type="time" name="time" id="time" required>
+
+        <input type="submit" value="Book">
+    </form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact Us</title>
+	<link rel="stylesheet" type="text/css" href="static/about.css">
+</head>
+<body>
+	<header>
+		<h1>Contact Us</h1>
+		{% if 'username' not in session %}
+			<a href="/login"><bun>Log in</button></a>
+		{% endif %}
+	</header>
+	<main>
+		<h2>Get in Touch</h2>
+		<p>Feel free to reach out to us with any questions or comments you may have. You can contact us using the information below:</p>
+		<ul>
+			<li><a href="tel:+31 6 33057892"><img src="static/whatsapp.png" alt="whatsapp Logo" height="30">Phone:+31 6 33057892</a></li>
+			<li><a href="https://www.facebook.com/genomirco"><img src="static/Facebook.jpg" alt="Facebook Logo" height="30"> Facebook</a></li>
+			<li><a href="https://www.instagram.com/evgenikurtev/"><img src="static/instagram.png" alt="Instagram Logo" height="30"> Instagram</a></li>
+		</ul>
+	</main>
+	<footer>
+		<a href="/"><button>Back to home page</button></a>
+	</footer>
+</body>tto
+</html>
