@@ -1,87 +1,114 @@
 body {
-    background-image: url("nature.jpg");
-    background-size: cover;
-    background-position: center;
-    font-family: Arial, sans-serif;
-    color: #444;
-    margin: 0;
-    padding: 0;
-  }
-  
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.9);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-  }
-  
-  nav ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  nav li {
-    margin: 0 10px;
-  }
-  
-  nav a {
-    color: #444;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  nav a:hover {
-    color: #222;
-  }
-  
+  background-image: url("nature.jpg");
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+  color: #444;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  color: #444;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #222;
+}
+
+h1 {
+  font-size: 36px;
+  margin: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+label {
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+input[type="date"],
+input[type="time"] {
+  font-size: 20px;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: none;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+p {
+  color: red;
+  margin-top: 20px;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 600px) {
   h1 {
-    font-size: 36px;
-    margin: 0;
+      font-size: 24px;
   }
   
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
+  nav ul li {
+      margin: 0 5px;
   }
   
   label {
-    font-size: 24px;
-    margin-top: 20px;
+      font-size: 20px;
   }
   
   input[type="date"],
   input[type="time"] {
-    font-size: 20px;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: none;
+      font-size: 18px;
   }
   
   input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  input[type="submit"]:hover {
-    background-color: #3e8e41;
+      padding: 8px 16px;
   }
   
   p {
-    color: red;
-    margin-top: 20px;
+      font-size: 16px;
   }
-  
+}
