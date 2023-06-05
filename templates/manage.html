@@ -2,104 +2,45 @@
 <html>
 <head>
     <title>Manage Bookings</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        th, td {
-            text-align: left;
-            padding: 8px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        tr:hover {background-color: #f5f5f5;}
-
-        th {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        form {
-            display: inline-block;
-        }
-
-        .accept-button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 8px 16px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            border-radius: 16px;
-        }
-
-        .accept-button:hover {
-            background-color: #3e8e41;
-        }
-
-        .decline-button {
-            background-color: #FF0000;
-            color: white;
-            padding: 8px 16px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            border-radius: 16px;
-        }
-
-        .decline-button:hover {
-            background-color: #CC0000;
-        }
-
-        /* Responsive styles */
-        @media (max-width: 600px) {
-            table, th, td {
-                font-size: 12px;
-            }
-            
-            .accept-button, .decline-button {
-                font-size: 12px;
-                padding: 4px 8px;
-                margin: 4px 0;
-            }
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
     
 </head>
 <body>
     <h1 class="text-2xl font-bold mb-4">Manage Bookings</h1>
+    
     <table class="w-full">
         <thead>
             <tr class="bg-green-500">
-                <th class="text-white py-2 px-4">Date</th>
-                <th class="text-white py-2 px-4">Time</th>
-                <th class="text-white py-2 px-4">Status</th>
-                <th class="text-white py-2 px-4">Action</th>
-            </tr>
+                <th class="text-white py-2 px-2 sm:px-4 text-sm text-left">Date</th>
+                <th class="text-white py-2 px-2 sm:px-4 text-sm text-left">Time</th>
+                <th class="text-white py-2 px-2 sm:px-4 text-sm text-left">Status</th>
+                <th class="text-white py-2 px-2 sm:px-4 text-sm text-left">Action</th>
+            </tr>            
         </thead>
         
         <tbody>
             {% for booking in bookings %}
             <tr>
-                <td>{{ booking[2] }}</td>
-                <td>{{ booking[3] }}</td>
-                <td>{{ booking[4] }}</td>
-                <td class="flex">
+                <td class="py-2 px-2 sm:px-4 text-sm">{{ booking[2] }}</td>
+                <td class="py-2 px-2 sm:px-4 text-sm">{{ booking[3] }}</td>
+                <td class="py-2 px-2 sm:px-4 text-sm">{{ booking[4] }}</td>
+                <td class="flex items-center space-x-4">
                     <form action="/manage_bookings" method="POST">
                         <input type="hidden" name="booking_id" value="{{ booking[0] }}">
-                        <button type="submit" name="status" value="accepted" class="accept-button">Accept</button>
+                        <button type="submit" name="status" value="accepted" class="accept-button bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transform hover:scale-105 transition-transform duration-300">Accept</button>
                     </form>
                     <form action="/manage_bookings" method="POST">
                         <input type="hidden" name="booking_id" value="{{ booking[0] }}">
-                        <button type="submit" name="status" value="declined" class="decline-button">Decline</button>
+                        <button type="submit" name="status" value="declined" class="decline-button bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transform hover:scale-105 transition-transform duration-300">Decline</button>
                     </form>
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-    <a href="/" class="text-blue-500 hover:underline">Back to Home</a>
+    <a href="/" class="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition-transform duration-300 transform hover:scale-105">
+        Back to Home
+      </a>
+      
 </body>
 </html>

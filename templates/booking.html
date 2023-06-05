@@ -5,31 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="/static/booking.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Book Visit</title>
 </head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/booking">Book Visit</a></li>
-                <li><a href="/pending_bookings">Pending Bookings</a></li>
-                <li><a href="/accepted_bookings">Accepted Bookings</a></li>
-            </ul>
+<body class="flex flex-col min-h-screen">
+    <header class="bg-white shadow-md px-4 py-2">
+        <nav class="flex justify-between items-center">
+            <div>
+                <input type="checkbox" id="menu-toggle" class="hidden">
+                <label for="menu-toggle" class="cursor-pointer inline-block sm:hidden">
+                    <svg class="w-6 h-6 fill-current text-gray-700" viewBox="0 0 24 24">
+                        <path class="hidden sm:block" fill-rule="evenodd" clip-rule="evenodd" d="M4 6h16M4 12h16M4 18h16"></path>
+                        <path class="sm:hidden" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </label>
+                <ul class="flex space-x-2 sm:space-x-4">
+                    <li>
+                        <a href="/" class="relative inline-block transform transition-transform hover:scale-105">
+                            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded hidden sm:inline-block">
+                                Home
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/booking" class="relative inline-block transform transition-transform hover:scale-105">
+                            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded hidden sm:inline-block">
+                                Book Visit
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/pending_bookings" class="relative inline-block transform transition-transform hover:scale-105">
+                            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded hidden sm:inline-block">
+                                Pending Bookings
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/accepted_bookings" class="relative inline-block transform transition-transform hover:scale-105">
+                            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded hidden sm:inline-block">
+                                Accepted Bookings
+                            </button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </header>
-    <h1>Book a Visit</h1>
-    {% if error_message %}
-        <p>{{ error_message }}</p>
-    {% endif %}
-    <form method="POST">
-        <label for="date">Date:</label>
-        <input type="date" name="date" id="date" required>
+    
 
-        <label for="time">Time:</label>
-        <input type="time" name="time" id="time" required>
+    <div class="max-w-md mx-auto mt-20 p-8 bg-white rounded-lg shadow-lg opacity-90">
+        <h1 class="text-3xl font-bold mb-4">Book a Visit</h1>
 
-        <input type="submit" value="Book">
-    </form>
+        {% if error_message %}
+        <p class="text-red-500">{{ error_message }}</p>
+        {% endif %}
+
+        <form method="POST" class="space-y-4">
+            <div class="border border-gray-300 rounded-md p-4 space-y-4">
+                <div>
+                    <label for="date" class="block mb-2">Date:</label>
+                    <input type="date" name="date" id="date" required class="w-full border border-gray-300 rounded-md p-2">
+                </div>
+
+                <div>
+                    <label for="time" class="block mb-2">Time:</label>
+                    <input type="time" name="time" id="time" required class="w-full border border-gray-300 rounded-md p-2">
+                </div>
+            </div>
+
+            <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transform hover:scale-105 transition-transform duration-300">
+                Book
+            </button>
+        </form>
+    </div>
+
+<footer class="bg-white py-4 flex-shrink-0">
+    <div class="container mx-auto text-center">
+        <p class="text-gray-600">© 2023 Your Company. All rights reserved.</p>
+        <ul class="flex justify-center mt-2">
+            <li class="mx-2"><a href="#" class="text-gray-600 hover:text-gray-800">Terms of Service</a></li>
+            <li class="mx-2"><a href="#" class="text-gray-600 hover:text-gray-800">Privacy Policy</a></li>
+            <li class="mx-2"><a href="#" class="text-gray-600 hover:text-gray-800">Contact Us</a></li>
+        </ul>
+    </div>
+</footer>  
 </body>
+
 </html>

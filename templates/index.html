@@ -8,19 +8,35 @@
 
 <body>
     <header>
-        <h1>Fonteyn Holidayparks test</h1>
+        <h1 class="text-xl">Fonteyn Holidayparks test</h1>
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="menu-icon">&#9776;</label>
         <nav class="menu-buttons">
             {% if 'username' in session %}
-                <span>Welcome, {{ session['username'] }}!</span>
+                <span class="text-xl">Welcome, {{ session['username'] }}!</span>
                 {% if session['type'] == 'admin' %}
-                    <a href="/manage_bookings"><button>Manage bookings</button></a>
+                <a href="/manage_bookings" class="relative inline-block transform transition-transform hover:scale-105">
+                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                      Admin Panel
+                    </button>
+                  </a>
                 {% endif %}
-                <a href="/logout"><button>Log out</button></a>
-                <a href="/booking"><button>Book a visit</button></a>
+                  <a href="/booking" class="relative inline-block transform transition-transform hover:scale-105">
+                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                      Bookings
+                    </button>
+                  </a>
+                  <a href="/logout" class="relative inline-block transform transition-transform hover:scale-105">
+                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                      Log out
+                    </button>
+                  </a>
             {% else %}
-                <a href="/login"><button>Log in</button></a>
+                <a href="/login" class="relative inline-block transform transition-transform hover:scale-105">
+                    <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+                    Log in
+                    </button>
+                </a>
             {% endif %}
         </nav>
     </header>
