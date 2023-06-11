@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Declined Bookings</title>
+	<script src="https://cdn.tailwindcss.com"></script>	
+</head>
+<body>
+	<table class="w-full">
+        <thead>
+            <tr class="bg-green-500">
+                <th class="text-white py-2 px-2 sm:px-4 text-sm text-left">Date</th>
+                <th class="text-white py-2 px-2 sm:px-4 text-sm text-left">Time</th>
+                <th class="text-white py-2 px-2 sm:px-4 text-sm text-left">Status</th>
+                <th class="text-white py-2 px-2 sm:px-4 text-sm text-left">Action</th>
+            </tr>            
+        </thead>
+        
+        <tbody>
+            {% for booking in bookings %}
+            <tr>
+                <td class="py-2 px-2 sm:px-4 text-sm">{{ booking[2] }}</td>
+                <td class="py-2 px-2 sm:px-4 text-sm">{{ booking[3] }}</td>
+                <td class="py-2 px-2 sm:px-4 text-sm">{{ booking[4] }}</td>
+                <td class="flex items-center space-x-4">
+                    <form action="/manage_bookings" method="POST">
+                        <input type="hidden" name="booking_id" value="{{ booking[0] }}">
+                        <button type="submit" name="status" value="accepted" class="accept-button bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transform hover:scale-105 transition-transform duration-300">Accept</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+		<a href="/" class="inline-block mt-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition-transform duration-300 transform hover:scale-105">
+			Back to Home
+		</a>
+	</div>
+</body>
+</html>
+

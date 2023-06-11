@@ -6,6 +6,42 @@
     
 </head>
 <body>
+    <header class="bg-white shadow-md px-4 py-2">
+        <nav class="flex justify-between items-center">
+            <div>
+                <input type="checkbox" id="menu-toggle" class="hidden">
+                <label for="menu-toggle" class="cursor-pointer inline-block sm:hidden">
+                    <svg class="w-6 h-6 fill-current text-gray-700" viewBox="0 0 24 24">
+                        <path class="hidden sm:block" fill-rule="evenodd" clip-rule="evenodd" d="M4 6h16M4 12h16M4 18h16"></path>
+                        <path class="sm:hidden" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </label>
+                <ul class="flex space-x-2 sm:space-x-4">
+                    <li>
+                        <a href="/" class="relative inline-block transform transition-transform hover:scale-105">
+                            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded hidden sm:inline-block">
+                                Home
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/declined_manage" class="relative inline-block transform transition-transform hover:scale-105">
+                            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded hidden sm:inline-block">
+                                Declined Bookings
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/accepted_manage" class="relative inline-block transform transition-transform hover:scale-105">
+                            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded hidden sm:inline-block">
+                                Accepted Bookings
+                            </button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
     <h1 class="text-2xl font-bold mb-4">Manage Bookings</h1>
     
     <table class="w-full">

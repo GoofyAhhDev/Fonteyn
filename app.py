@@ -172,12 +172,7 @@ def manage_bookings():
     db = get_db()
     with db:
         cursor = db.cursor()
-        cursor.execute("""
-            SELECT bookings.id, users.username, bookings.date, bookings.time, bookings.status
-            FROM bookings
-            JOIN users ON bookings.user_id = users.id
-            ORDER BY bookings.date, bookings.time
-        """)
+        cursor.execute("SELECT * FROM  bookings WHERE status = ?",('pending',))
         bookings = cursor.fetchall()
         if request.method == "POST":
             booking_id = request.form["booking_id"]
@@ -195,7 +190,6 @@ def accepted_orders():
         cursor = db.cursor()
         cursor.execute("SELECT * FROM bookings WHERE user_id = ? AND status = ?", (session['userID'],'accepted'))
         bookings = cursor.fetchall()
-    print(session['userID'])
     return render_template('accepted_booking.html', bookings = bookings)
 
 @app.route("/pending_bookings")
@@ -208,5 +202,21 @@ def pending_orders():
     print(session['userID'])
     return render_template('pending_booking.html', bookings = bookings)
 
+@app.route("/accepted_manage")
+def accepted_manage():
+    db = get_db()
+    with db:
+        cursor = db.cursor()
+        cursor.execute("SELECT * FROM bookings WHERE status = ?", ('accepted',))
+        bookings = cursor.fetchall()
+    return render_template('accepted_manage.html', bookings = bookings)
+@app.route("/declined_manage")
+def declined_bookings():
+    db = get_db()
+    with db:
+        cursor = db.cursor()
+        cursor.execute("SELECT * FROM bookings WHERE status = ?", ('declined',))
+        bookings = cursor.fetchall()
+    return render_template('declined_manage.html', bookings = bookings)
 if __name__ == '__main__':
     app.run(debug=True,)
